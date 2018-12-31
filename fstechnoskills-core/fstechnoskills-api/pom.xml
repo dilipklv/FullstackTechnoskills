@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.fstechnoskills</groupId>
+    <artifactId>fstechnoskills-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>fstechnoskills-api</artifactId>
+  <packaging>war</packaging>
+  <name>fstechnoskills-api</name>
+  <description>fstechnoskills-api</description>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>javax</groupId>
+  		<artifactId>javaee-api</artifactId>
+  		<version>${javaee.version}</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>fish.payara.extras</groupId>
+    	<artifactId>payara-embedded-web</artifactId>
+  		<version>${payara-micro.version}</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-war-plugin</artifactId>
+        	<version>3.2.2</version>
+        	<configuration>
+        		<failOnMissingWebXml>false</failOnMissingWebXml>
+        		<warName>fs</warName>
+        	</configuration>
+  		</plugin>
+  		<plugin>
+		    <groupId>fish.payara.maven.plugins</groupId>
+		    <artifactId>payara-micro-maven-plugin</artifactId>
+		    
+		    <version>1.0.0</version>
+		    <executions>
+		        <execution>
+		            <goals>
+		                <goal>bundle</goal>
+		                <goal>start</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		    <configuration>
+		        <payaraVersion>${payara-micro.version}</payaraVersion>        
+		 
+		        <useUberJar>true</useUberJar>
+		 
+		        <commandLineOptions>
+		            <option>
+		                <key>--deploy</key>
+		                <value>target/fs.war</value>
+		            </option>
+		                        
+		        </commandLineOptions>
+		    </configuration>
+		</plugin>
+  		
+  	</plugins>
+  </build>
+  
+  
+  
+</project>

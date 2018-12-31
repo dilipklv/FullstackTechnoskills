@@ -12,7 +12,7 @@
   	<maven.compiler.target>1.8</maven.compiler.target>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  	<payara-micro.version>5.182</payara-micro.version>
+  	<payara-micro.version>5.184</payara-micro.version>
   	<javaee.version>7.0</javaee.version>
   </properties>
   
@@ -32,5 +32,12 @@
   	</dependency>
   </dependencies>
   </dependencyManagement>
+  
+  
+  
+  <modules>
+  	<module>fstechnoskills-api</module>
+  </modules>
+  
   
 </project>
